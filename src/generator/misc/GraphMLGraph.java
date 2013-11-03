@@ -18,10 +18,8 @@ import org.w3c.dom.Element;
 public class GraphMLGraph {
 	protected int N;
 	protected int[][] matrix;
-	
-	public static int counter = 0;
-	
-	public void write() {
+		
+	public void write(String name) {
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -63,7 +61,7 @@ public class GraphMLGraph {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("/home/berlin/test.xml"));
+			StreamResult result = new StreamResult(new File("./graphs/"+name+".xml"));
 	 
 			// Output to console for testing
 			// StreamResult result = new StreamResult(System.out);
@@ -71,12 +69,11 @@ public class GraphMLGraph {
 			transformer.transform(source, result);
 		}
 		catch (ParserConfigurationException pce) {
-			
+			pce.printStackTrace();
 		}
 		catch (TransformerException tfe) {
 			tfe.printStackTrace();
 		}
-		counter += 1;
 	}
 	
 }

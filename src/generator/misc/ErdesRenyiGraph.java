@@ -5,8 +5,8 @@ import java.util.Random;
 public class ErdesRenyiGraph extends GraphMLGraph {
 	
 	public ErdesRenyiGraph(int n, double p) {
-		N = n;
-		matrix = new int[N][N];
+		this.N = n;
+		this.matrix = new int[N][N];
 		Random rand = new Random();
 		for (int i=0;i<N;i++) {
 			for (int j=i+1;j<N;j++) {
