@@ -3,10 +3,33 @@ package generator.misc;
 public class GraphGenerator {
 
 	public static void main(String[] args) {
-		ErdesRenyiGraph g = new ErdesRenyiGraph(10, 0.5);
-		g.write("erdesh");
-		GeometricalRandomGraph gg = new GeometricalRandomGraph(10, 0.5);
-		gg.write("geom");
+		try {
+			GraphMLGraph graph = null;
+			
+			String type = args[0].toLowerCase();
+			int n = Integer.parseInt(args[1]);
+			double prob;
+			
+			switch (type) {
+			case "random":
+				prob = Double.parseDouble(args[2]);
+				graph = new ErdesRenyiGraph(n, prob);
+				break;
+			case "geometrical":
+				prob = Double.parseDouble(args[2]);
+				graph = new GeometricalRandomGraph(n, prob);
+				break;
+			case "freescale":
+				graph = new BarabashiAlbertGraph(n);
+				break;
+			default:
+				break;
+			}
+			graph.write("graph");
+		}
+		catch (ArrayIndexOutOfBoundsException ex) {
+			System.out.println("You need specify at least 2 params: algorithm and number of points. For random and geometrical algorithm you should also add probability");
+		}
 		
 	}
 

@@ -44,8 +44,8 @@ public class GeometricalRandomGraph extends GraphMLGraph {
 	}
 	
 	public GeometricalRandomGraph(int n, double p) {
-		this.N = n;
-		this.matrix = new int[N][N];
+		N = n;
+		matrix = new int[N][N];
 		Point[] points = new Point[N];
 		for (int i=0;i<N;i++) {
 			points[i] = new Point();
