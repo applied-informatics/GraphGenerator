@@ -61,7 +61,7 @@ public class GraphMLGraph {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("./graphs/"+name+".xml"));
+			StreamResult result = new StreamResult(new File("./graphs/"+name+".graphml"));
 	 
 			// Output to console for testing
 			// StreamResult result = new StreamResult(System.out);

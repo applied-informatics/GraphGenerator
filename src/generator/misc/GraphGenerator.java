@@ -15,6 +15,10 @@ public class GraphGenerator {
 				prob = Double.parseDouble(args[2]);
 				graph = new ErdesRenyiGraph(n, prob);
 				break;
+			case "erdesh":
+				int m = Integer.parseInt(args[2]);
+				graph = new ErdesRenyiForNEdgesGraph(n, m);
+				break;
 			case "geometrical":
 				prob = Double.parseDouble(args[2]);
 				graph = new GeometricalRandomGraph(n, prob);
